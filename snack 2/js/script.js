@@ -29,16 +29,20 @@ var teamList = [
     }
     
 ]
+
+var teamsFouls = [];
 // Generare numeri random al posto degli 0 nelle proprietà: punti fatti e falli subiti.
 for (var i = 0; i < teamList.length; i++) {
     teamList[i].score = getRndNumber(1, 100);
     teamList[i].fouls = getRndNumber(1, 50);
+
+    var teamFouls = {};
+    teamFouls.nome = teamList[i].name;
+    teamFouls.fouls = teamList[i].fouls;
+    teamsFouls.push(teamFouls)
+
+
 }
 console.log(teamList);
+console.log(teamsFouls);
 // Infine creiamo un nuovo array i cui elementi contengono solo nomi e falli subiti e stampiamo tutto in console.
-var ranking = []
-
-for (var j = 0; j < teamList.length; j++) {
-    ranking.push(teamList[j].name + ": " + teamList[j].fouls + " falli subiti")
-}
-console.log(ranking);
